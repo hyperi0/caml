@@ -1,0 +1,137 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5220,        129]
+NotebookOptionsPosition[      4220,        103]
+NotebookOutlinePosition[      4609,        119]
+CellTagsIndexPosition[      4566,        116]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Cellular Automaton Machine Learning", "Title",
+ CellChangeTimes->{{3.862926463601969*^9, 
+  3.8629264720415688`*^9}},ExpressionUUID->"9d8fa728-4cb8-4bc9-ac78-\
+0da0180fded0"],
+
+Cell[CellGroupData[{
+
+Cell["Introduction", "Section",
+ CellChangeTimes->{{3.8629264752499*^9, 3.862926476281416*^9}, {
+  3.862927165995266*^9, 
+  3.8629271682991343`*^9}},ExpressionUUID->"ac2cf889-c39d-41bd-bfe3-\
+701d2bccaa25"],
+
+Cell["\<\
+\tCellular Automata (CAs) are a class of simple computational systems that \
+can produce arbitrarily complex behavior. The goal of this project is to \
+build a system which uses CAs to flexibly learn complex tasks. Certain CAs \
+are capable of emulating the behavior of any other computational system, \
+which abstractly means they could emulate a human brain, a structure which \
+has the kind of behavior we\[CloseCurlyQuote]re searching for. Because we \
+have consistent laws of physics, we know that there are (infinitely?) many \
+pockets of computational reducibility in the universe, which means it\
+\[CloseCurlyQuote]s theoretically possible to search the computational \
+universe in a way faster than sheer enumeration, or in the limiting case of \
+simulating the entire universe. Taken together, these facts mean that it \
+should be theoretically possible within our universe to find or construct \
+systems based on CAs that are capable of producing the kinds of behavior we \
+could recognize as intelligent. So, I aim to construct a system which uses \
+CAs that is able to flexibly modulate its own behavior and thereby learn to \
+complete simple tasks.\
+\>", "Text",
+ CellChangeTimes->{{3.862926482901805*^9, 3.862926504169579*^9}, {
+  3.862926565946069*^9, 3.862926998434792*^9}, {3.86292704225097*^9, 
+  3.862927081802577*^9}, {3.862927126842698*^9, 
+  3.862927139634324*^9}},ExpressionUUID->"70f41ae9-98a9-4910-b799-\
+4229bdfc60a2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Possible Methods", "Section",
+ CellChangeTimes->{{3.862927145171255*^9, 
+  3.86292714695462*^9}},ExpressionUUID->"e24d82c9-3e86-4f79-88ee-\
+b13f6db1a236"],
+
+Cell["\<\
+\tIt\[CloseCurlyQuote]s impossible to predict the behavior of a particular CA \
+rule without explicitly computing its evolution. However, I found that it\
+\[CloseCurlyQuote]s possible to somewhat incrementally modify CA behavior by \
+changing the pieces of the rule that are used least. This is a heuristic \
+method and does not guarantee small changes in behavior, but it produces \
+similar enough CA evolutions to be a useful method of moving in the space of \
+CA behavior. It also has enough unpredictability in the CAs it produces to \
+make larger changes in its specific behavior or even its class of behavior. \
+So, my primary idea is to base a machine learning method off of making \
+changes in CA rules of a \[OpenCurlyQuote]size\[CloseCurlyQuote] somehow \
+proportional to how far the CA is from its desired behavior. 
+
+Chains of CAs
+\tEncode data then use universal CA for final analysis
+\tMove to solution faster by allowing incremental changes in smaller pieces \
+of data
+\tParallel to using layers in neural nets\
+\>", "Text",
+ CellChangeTimes->{{3.862927202106739*^9, 3.862927500539693*^9}, {
+  3.862927640979476*^9, 
+  3.8629277156598873`*^9}},ExpressionUUID->"59a2bcbd-df32-4934-a159-\
+586995925187"]
+}, Open  ]],
+
+Cell["Test Tasks", "Section",
+ CellChangeTimes->{{3.862927153306819*^9, 
+  3.86292715423518*^9}},ExpressionUUID->"f1ac9ac3-c798-4b7a-824b-\
+6968541fccfa"],
+
+Cell["Project Plan", "Section",
+ CellChangeTimes->{{3.862927159698647*^9, 
+  3.862927162275167*^9}},ExpressionUUID->"27a9f443-7c12-4317-8c2d-\
+08b80e85fa9b"]
+}, Open  ]]
+},
+WindowSize->{960, 1003},
+WindowMargins->{{0, Automatic}, {Automatic, 37}},
+FrontEndVersion->"12.3 for Linux x86 (64-bit) (July 9, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"2b5e9f0f-5c39-4fb7-86e6-5ce93ac1df4f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 180, 3, 98, "Title",ExpressionUUID->"9d8fa728-4cb8-4bc9-ac78-0da0180fded0"],
+Cell[CellGroupData[{
+Cell[785, 29, 206, 4, 67, "Section",ExpressionUUID->"ac2cf889-c39d-41bd-bfe3-701d2bccaa25"],
+Cell[994, 35, 1455, 22, 219, "Text",ExpressionUUID->"70f41ae9-98a9-4910-b799-4229bdfc60a2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2486, 62, 160, 3, 67, "Section",ExpressionUUID->"e24d82c9-3e86-4f79-88ee-b13f6db1a236"],
+Cell[2649, 67, 1226, 22, 265, "Text",ExpressionUUID->"59a2bcbd-df32-4934-a159-586995925187"]
+}, Open  ]],
+Cell[3890, 92, 154, 3, 67, "Section",ExpressionUUID->"f1ac9ac3-c798-4b7a-824b-6968541fccfa"],
+Cell[4047, 97, 157, 3, 53, "Section",ExpressionUUID->"27a9f443-7c12-4317-8c2d-08b80e85fa9b"]
+}, Open  ]]
+}
+]
+*)
+
