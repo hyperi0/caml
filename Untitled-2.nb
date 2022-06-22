@@ -1,0 +1,403 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     18016,        395]
+NotebookOptionsPosition[     15734,        349]
+NotebookOutlinePosition[     16124,        365]
+CellTagsIndexPosition[     16081,        362]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"init", " ", "=", " ", 
+   RowBox[{"CenterArray", "[", 
+    RowBox[{"1", ",", "50"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8647386887840233`*^9, 3.8647386961830063`*^9}},
+ CellLabel->"In[42]:=",ExpressionUUID->"430119cf-1a8c-482e-a203-9e12f74cd7d3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CellularAutomaton", "[", 
+   RowBox[{"110", ",", " ", "init", ",", " ", "50"}], "]"}], "//", 
+  "ArrayPlot"}]], "Input",
+ CellChangeTimes->{{3.8647387098370333`*^9, 3.864738716637196*^9}},
+ CellLabel->"In[43]:=",ExpressionUUID->"dab50a48-d9d8-4120-8c27-3e30c9588b5d"],
+
+Cell[BoxData[
+ GraphicsBox[RasterBox[CompressedData["
+1:eJyVleuRgzAQg1fp5Fq46yQl0ED6/3cJeCWtg41hhszysCV9Xpyf7fXcHhHx
+9z5/gwcCQKv2X+x3Pvdw1EfxKfe3oz04Ko3KaTjfXraffMxryecMbfr2NmfU
+db4DzgCZoQfLQ3XWnL54YB5InUTgZkImQPFUSyJ+IMxEOpBacAwSQAiB0YZF
+zTPEIj06bYvaPLZYvlCVtlYu1zuchXGQhnyG21Jyz2sqjVf2FTx5oetZXIA0
+K+2qIpDqmSwL3c6nFl7d39PtfIpceFnoepZM3nV/T9ez2IonhDO6nsW/BOd7
+puHr4t1/Ttez9N0/oOtZ0hM765yuZ0HpfozoehaU7seIrhur3Y8R3eJM3V+1
+J87Y/VO6pmLdbzvFVIXdX3aKiyzgwszolizNYMzplizIffkqOV/NvrqiK5Ww
+jXJhBL+pWe9+q2ijXBphO+Q1XamwVdZG6Ntd1dC/xbKG9rz1EfOdYaiyTFcq
+y3Slck/jHl2p3BxxM/kxZPjkH5cRCP0=
+   "], {{0, 0}, {50, 51}}, {0, 1}],
+  Frame->Automatic,
+  FrameLabel->{None, None},
+  FrameTicks->{{None, None}, {None, None}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultPlotStyle" -> 
+    Automatic}]], "Output",
+ CellChangeTimes->{3.864738716965008*^9},
+ CellLabel->"Out[43]=",ExpressionUUID->"4fd6a20a-abd1-4ab7-95a8-e4387ed9de6e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NestWhile", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"CellularAutomaton", "[", 
+     RowBox[{"1", ",", " ", "#", ",", " ", "50"}], "]"}], "&"}], ",", 
+   "\[IndentingNewLine]", "init", ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"!", 
+     RowBox[{"MemberQ", "[", 
+      RowBox[{"#", ",", " ", 
+       RowBox[{"CellularAutomaton", "[", 
+        RowBox[{"1", ",", " ", 
+         RowBox[{"Last", "@", "#"}]}], "]"}]}], "]"}]}], "&"}], ",", 
+   "\[IndentingNewLine]", "All"}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.864738793029262*^9, 3.8647388406903954`*^9}, {
+  3.864738949499301*^9, 3.86473897837763*^9}, {3.864739017803483*^9, 
+  3.864739085512229*^9}},
+ CellLabel->"In[52]:=",ExpressionUUID->"aa562fc6-cd52-4552-ae9b-e8ef05eed63a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "CellularAutomaton", "initn", 
+   "\"The initial condition specification \\!\\(\\*RowBox[{\\\"0\\\"}]\\) \
+should be of the form aspec, {aspec, bspec}, or {{{aspec1, off1}, {aspec2, \
+off2},... {aspecn, offn}}, bspec} (n > 0). Each aspec must be a non-empty \
+rank \\!\\(\\*RowBox[{\\\"1\\\"}]\\) array whose elements at level \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) are integers i in the range 0 <= i <= \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\).\"", 2, 52, 15, 20602601329873962729, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.864739051083342*^9, 3.864739081160554*^9, 
+  3.864739169220643*^9},
+ CellLabel->
+  "During evaluation of \
+In[52]:=",ExpressionUUID->"2d89989e-75e3-4ffa-9198-42dafc7c75a7"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "CellularAutomaton", "initn", 
+   "\"The initial condition specification \\!\\(\\*RowBox[{\\\"0\\\"}]\\) \
+should be of the form aspec, {aspec, bspec}, or {{{aspec1, off1}, {aspec2, \
+off2},... {aspecn, offn}}, bspec} (n > 0). Each aspec must be a non-empty \
+rank \\!\\(\\*RowBox[{\\\"1\\\"}]\\) array whose elements at level \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) are integers i in the range 0 <= i <= \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\).\"", 2, 52, 16, 20602601329873962729, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.864739051083342*^9, 3.864739081160554*^9, 
+  3.8647391692285013`*^9},
+ CellLabel->
+  "During evaluation of \
+In[52]:=",ExpressionUUID->"7d2903a3-43e0-4a4d-ba34-a73c0df67ec9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "CellularAutomaton", "initn", 
+   "\"The initial condition specification \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"0\\\", \
+\\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \
+\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \
+\\\",\\\", \\\"0\\\", \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"40\\\", \
+\\\"\[RightSkeleton]\\\"}]}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \
+\\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \
+\\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"40\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \
+\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \
+\\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \
+\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"40\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \
+\\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \
+\\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \
+\\\"1\\\", \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"40\\\", \\\"\
+\[RightSkeleton]\\\"}]}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\
+\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \
+\\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \
+\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"40\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\",\\\", \
+\\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \
+\\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \
+\\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"40\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \
+\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \
+\\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \
+\\\"0\\\", \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"40\\\", \\\"\
+\[RightSkeleton]\\\"}]}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\
+\\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \
+\\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \
+\\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"40\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \
+\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \
+\\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \
+\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"40\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \
+\\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \
+\\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \
+\\\"1\\\", \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"40\\\", \\\"\
+\[RightSkeleton]\\\"}]}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\
+\\\", \\\"41\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"}\\\"}]\\) should be of \
+the form aspec, {aspec, bspec}, or {{{aspec1, off1}, {aspec2, off2},... \
+{aspecn, offn}}, bspec} (n > 0). Each aspec must be a non-empty rank \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) array whose elements at level \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) are integers i in the range 0 <= i <= \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\).\"", 2, 52, 17, 20602601329873962729, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.864739051083342*^9, 3.864739081160554*^9, 
+  3.864739169233837*^9},
+ CellLabel->
+  "During evaluation of \
+In[52]:=",ExpressionUUID->"ae9eb124-658f-4965-8cb3-9304bf10c2ce"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"CellularAutomaton\\\", \
+\\\"::\\\", \\\"initn\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"", 2, 52, 18, 20602601329873962729, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.864739051083342*^9, 3.864739081160554*^9, 
+  3.864739169239801*^9},
+ CellLabel->
+  "During evaluation of \
+In[52]:=",ExpressionUUID->"ee48ebfb-ea51-4d94-9e4e-fc569423cf76"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{{3.864739073036721*^9, 3.864739087854828*^9}, 
+   3.864739173358955*^9},
+ CellLabel->"Out[52]=",ExpressionUUID->"d0d8f595-0b70-4440-a7a5-ff859d8983e3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CellularAutomaton", "[", 
+   RowBox[{"1", ",", "init", ",", "50"}], "]"}], "//", "ArrayPlot"}]], "Input",\
+
+ CellChangeTimes->{{3.8647390889919024`*^9, 3.8647390961446342`*^9}},
+ CellLabel->"In[47]:=",ExpressionUUID->"c480d2d0-b284-4df8-b679-70213981ca51"],
+
+Cell[BoxData[
+ GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwBmIjIGbEAXBKMDJgB7hlRu0YtWPUjlE7Ru0YtWPUjlE7
+Ru0YcDsA1lkHUw==
+   "], {{0, 0}, {50, 51}}, {0, 1}],
+  Frame->Automatic,
+  FrameLabel->{None, None},
+  FrameTicks->{{None, None}, {None, None}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultPlotStyle" -> 
+    Automatic}]], "Output",
+ CellChangeTimes->{3.864739096408869*^9},
+ CellLabel->"Out[47]=",ExpressionUUID->"73a1f5f0-474b-428d-a56f-a8374fd18c12"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CellularAutomaton", "[", 
+  RowBox[{"1", ",", " ", "init"}], "]"}]], "Input",
+ CellChangeTimes->{{3.864739101925003*^9, 3.864739106259945*^9}},
+ CellLabel->"In[48]:=",ExpressionUUID->"8f37036b-22b8-4bd7-b9de-ac1db1530afb"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+   ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", 
+   "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+   ",", "0", ",", "0", ",", "0", ",", "1", ",", "1", ",", "1", ",", "1", ",", 
+   "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+   ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", 
+   "1", ",", "1", ",", "1", ",", "1", ",", "1"}], "}"}]], "Output",
+ CellChangeTimes->{3.864739106691242*^9},
+ CellLabel->"Out[48]=",ExpressionUUID->"a4d2e5fd-a887-4fee-9361-d8e3ae736a56"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"states", "=", 
+  RowBox[{"{", 
+   RowBox[{"%", ",", " ", 
+    RowBox[{"CellularAutomaton", "[", 
+     RowBox[{"1", ",", "%"}], "]"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.8647391093727493`*^9, 3.864739123248639*^9}},
+ CellLabel->"In[49]:=",ExpressionUUID->"4ea7e2fe-a224-4fbb-8a40-bd689c90a611"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1",
+      ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+     ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+     ",", "1", ",", "0", ",", "0", ",", "0", ",", "1", ",", "1", ",", "1", 
+     ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+     ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+     ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+      ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+     ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+     ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", ",", "0", 
+     ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+     ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+     ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+    "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.8647391237465563`*^9},
+ CellLabel->"Out[49]=",ExpressionUUID->"72139f61-79c8-4b18-9a52-1549280c6de8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ArrayPlot", "@", "states"}]], "Input",
+ CellChangeTimes->{{3.8647391269676867`*^9, 3.8647391384351597`*^9}},
+ CellLabel->"In[50]:=",ExpressionUUID->"d82ebdaf-6441-4a23-b4bc-a7067648999f"],
+
+Cell[BoxData[
+ GraphicsBox[
+  RasterBox[{{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+   1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+   1, 1, 1, 1}, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+   0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+   0, 0, 0, 0, 0}}, {{0, 0}, {50, 2}}, {0, 1}],
+  Frame->Automatic,
+  FrameLabel->{None, None},
+  FrameTicks->{{None, None}, {None, None}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultPlotStyle" -> 
+    Automatic}]], "Output",
+ CellChangeTimes->{3.864739138739723*^9},
+ CellLabel->"Out[50]=",ExpressionUUID->"69afeb90-5c19-4ea4-b83e-0bee25f287f3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MemberQ", "[", 
+  RowBox[{"states", ",", " ", 
+   RowBox[{"CellularAutomaton", "[", 
+    RowBox[{"1", ",", 
+     RowBox[{"Last", "@", "states"}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.864739143489361*^9, 3.864739151417148*^9}},
+ CellLabel->"In[51]:=",ExpressionUUID->"90de1ba3-7334-4152-a4d8-d65ba1dc31a6"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.8647391517876463`*^9},
+ CellLabel->"Out[51]=",ExpressionUUID->"fbaeb10a-3edb-4465-b9e3-096c94ae2f8e"]
+}, Open  ]]
+},
+WindowSize->{830, 764},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.3 for Mac OS X ARM (64-bit) (July 9, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"b81ec3b4-9fdd-4269-a638-6594f3f2a6e3"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 294, 6, 30, "Input",ExpressionUUID->"430119cf-1a8c-482e-a203-9e12f74cd7d3"],
+Cell[CellGroupData[{
+Cell[877, 30, 302, 6, 30, "Input",ExpressionUUID->"dab50a48-d9d8-4120-8c27-3e30c9588b5d"],
+Cell[1182, 38, 1305, 28, 383, "Output",ExpressionUUID->"4fd6a20a-abd1-4ab7-95a8-e4387ed9de6e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2524, 71, 813, 18, 136, "Input",ExpressionUUID->"aa562fc6-cd52-4552-ae9b-e8ef05eed63a"],
+Cell[3340, 91, 746, 14, 63, "Message",ExpressionUUID->"2d89989e-75e3-4ffa-9198-42dafc7c75a7"],
+Cell[4089, 107, 748, 14, 63, "Message",ExpressionUUID->"7d2903a3-43e0-4a4d-ba34-a73c0df67ec9"],
+Cell[4840, 123, 4396, 62, 114, "Message",ExpressionUUID->"ae9eb124-658f-4965-8cb3-9304bf10c2ce"],
+Cell[9239, 187, 510, 11, 28, "Message",ExpressionUUID->"ee48ebfb-ea51-4d94-9e4e-fc569423cf76"],
+Cell[9752, 200, 206, 3, 34, "Output",ExpressionUUID->"d0d8f595-0b70-4440-a7a5-ff859d8983e3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9995, 208, 291, 6, 30, "Input",ExpressionUUID->"c480d2d0-b284-4df8-b679-70213981ca51"],
+Cell[10289, 216, 862, 21, 383, "Output",ExpressionUUID->"73a1f5f0-474b-428d-a56f-a8374fd18c12"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11188, 242, 246, 4, 30, "Input",ExpressionUUID->"8f37036b-22b8-4bd7-b9de-ac1db1530afb"],
+Cell[11437, 248, 701, 11, 56, "Output",ExpressionUUID->"a4d2e5fd-a887-4fee-9361-d8e3ae736a56"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12175, 264, 325, 7, 30, "Input",ExpressionUUID->"4ea7e2fe-a224-4fbb-8a40-bd689c90a611"],
+Cell[12503, 273, 1346, 24, 98, "Output",ExpressionUUID->"72139f61-79c8-4b18-9a52-1549280c6de8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13886, 302, 211, 3, 30, "Input",ExpressionUUID->"d82ebdaf-6441-4a23-b4bc-a7067648999f"],
+Cell[14100, 307, 1082, 23, 46, "Output",ExpressionUUID->"69afeb90-5c19-4ea4-b83e-0bee25f287f3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15219, 335, 342, 7, 30, "Input",ExpressionUUID->"90de1ba3-7334-4152-a4d8-d65ba1dc31a6"],
+Cell[15564, 344, 154, 2, 34, "Output",ExpressionUUID->"fbaeb10a-3edb-4465-b9e3-096c94ae2f8e"]
+}, Open  ]]
+}
+]
+*)
+
